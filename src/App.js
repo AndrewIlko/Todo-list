@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import ToDoList from "./components/ToDoList";
+import Wrapper from "./components/Wrapper";
+import BgColorPalette from "./components/BgColorPalette";
+import "./styles/dist/style.css";
 function App() {
+  const [bgColor, setBgColor] = useState("rgb(251, 251, 250)");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Wrapper bgColor={bgColor}>
+        <BgColorPalette setBgColor={setBgColor} bgColor={bgColor} />
+        <ToDoList />
+      </Wrapper>
+    </>
   );
 }
 
